@@ -29,9 +29,17 @@ Slide about me
 
 # Agenda
 
-[.column]
+## **Contesto**
 
+## **Migrazione**
+
+## **Lambda @ Edge**
+## **Solution Analysis**
+
+---
+<!--
 ### 1. Contesto
+
 
 1. DAZN Constraints
 2. Soluzione
@@ -39,30 +47,34 @@ Slide about me
 ### 2. Migrazione
 
 1. Due Frontend
-2. Lambda @ Edge
-3. Runtime Configuration
+2. Routing Missing Part
 
-4. Canary & BlueGreen Deployment
+### 3. Lambda @ Edge
+- Overview
+- Challenges
+	- Development
+	- Concurrent Limit
+	- Logs & Metrics Aggregation
+		- Lambda logs & cloudfront logs
+- Tips
 
-[.column]
+### 4. Solution Analysis
+- Costs
+- Check Needs VS Caracteristic
+- Canary Deployment
+- Runtime configuration
+	-  make network calls to resources in the same region where your Lambda@Edge function is executing to reduce network latency.
 
-### 3. Challenges
-
-1. Developing
-2. Logging Aggregation
-3. Metrics / Notifications
-
-→ → 💡Takeaways
-
+### 5. TakeAways
 
 ---
+-->
 
 #[fit] Contesto
+## **Migrazione**
+## **Lambda @ Edge**
+## **Analisi Soluzione**
 
-<br />
-<br />
-<br />
-<br />
 <br />
 <br />
 
@@ -122,18 +134,18 @@ Slide about me
 
 ---
 
+## **Contesto**
+
 #[fit] Migrazione
 
-<br />
-<br />
-<br />
-<br />
-<br />
+## **Lambda @ Edge**
+## **Analisi Soluzione**
+
 <br />
 
 ### @**_maxgallo**
 
---- 
+---
 
 # Due Frontend
 ## **Due Aziende**
@@ -157,13 +169,29 @@ Slide about me
 # Caratteristiche
 
 [.list: #000000, bullet-character(->), alignment(left)]
+[.build-lists: true]
 
 - __*Scalabilità*__
+- __*Velocità*__
 - __*Stessa URL*__
 - __*Indipendente dal Frontend*__
-- __*Canary Deployment per Nazione & Browser + Sticky Session*__
+- __*Canary Deployment*__
 
 ![Right 50%](./images/1_or_2_question_vertical.png)
+
+---
+
+## **Contesto**
+
+## **Migrazione**
+
+## [fit] Lambda @ Edge
+
+## **Analisi Soluzione**
+
+<br />
+
+### @**_maxgallo**
 
 ---
 
@@ -177,6 +205,8 @@ Slide about me
 - __*Runnano sulla CDN, CloudFront*__
 - __*Paghi solo quando le usi*__
 - __*Scalano automaticamente[^1]*__
+
+must be deployed in North Virigina (us-east-1)
 
 ![right 60%](./images/lambda.png)
 
@@ -202,14 +232,18 @@ Slide about me
 # L@E Challenge #1
 
 ## **Development**
-Il deploy delle Lambda@Edge nelle varie Edge Location può durare fino a 15/20 minuti. 
+Il deploy delle Lambda@Edge nelle varie Edge Location può durare fino a 15/20 minuti.
+
+^ AWS ha detto che stanno lavorando per ridurre il tempo.
 
 ---
 
 # L@E Challenge #2
 
 ## **Concurrent Limit**
-1000 concurrent limit by default per region (5000 hard limit)
+1000 concurrent executions per account per region (5000 hard limit)
+
+Warm Up time
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)
@@ -218,21 +252,96 @@ Il deploy delle Lambda@Edge nelle varie Edge Location può durare fino a 15/20 m
 
 # L@E Challenge #3
 
-## **Logs & Metrics Aggregation**
-I log e le metriche delle lambda sono sparsi in tutte le region
+## **Metrics**
+Le metriche delle lambda sono sparse in tutte le region, ma fruibili tutte insieme nella console di CloudFront.
 
-<br /><br />
+20 June 2019
+https://aws.amazon.com/about-aws/whats-new/2019/06/announcing-enhanced-lambda-edge-monitoring-amazon-cloudfront-console/
+
+
+
+---
+
+# L@E Challenge #4
+
+## **Logs**
+Lambda@Edge genera CloudWatch logs in 11 AWS Regions (dove CloudFront ha un Regional Edge Cache) <br/><br/>
+
+
 
 ![inline 55%](./images/logs.png)
 
----
-
-## Warm Up time
-Bla bla
-
-^ Da AWS ci hanno detto che stanno lavorando per fare durare meno il deploy.
+[.footer: https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/]
 
 ---
 
-#[fit] ☂︎☂︎*☂︎*☂︎☂︎☂︎
-# ✂︎ ⌘ ☔︎ ✈︎ ⚉ ⚇ ☞ ⎈ *✂︎*
+# L@E Tips & Tricks
+
+1. Optimize network latency
+	- enable TCP Keep Alive and reuse connections
+	- make network calls to resources in the same region here your Lambda@Edge function is executing
+ 	- using DynamoDB global tables
+
+2. Use infrastructure as code for Deployment & Logs Aggregation
+
+
+---
+
+
+## **Contesto**
+
+## **Migrazione**
+
+## **Lambda @ Edge**
+
+## [fit] Analisi Soluzione
+
+<br />
+
+### @**_maxgallo**
+
+---
+
+# Costi
+
+<br/>
+
+![inline 55%](./images/costs.png)
+
+---
+
+# Lambda @ Edge in DAZN
+
+[.list: #000000, bullet-character(->), alignment(left)]
+[.build-lists: true]
+
+- __*Scalabilità*__ ✅
+- __*Velocità*__ ✅
+- __*Stessa URL*__ ✅
+- __*Indipendente dal Frontend*__ ✅
+- __*Canary Deployment*__ ❌✅
+
+---
+
+# Canary Deployment
+
+- Change of configuration
+- Runtime configuration
+- Sticky Session + Cookie
+
+---
+
+# TakeAways
+
+---
+
+#[fit] Thank you
+
+
+# [fit] **github.com/maxgallo/talk-micro-frontends-on-the-edge**
+
+<br />
+<br />
+<br />
+
+### @**_maxgallo**
