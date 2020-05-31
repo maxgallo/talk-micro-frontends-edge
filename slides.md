@@ -23,7 +23,16 @@
 
 ---
 
-Slide about me
+# Ciao, sono Max
+anche se forse stavolta posso  dire Massimiliano
+
+# 🇮🇹 -> 🇬🇧
+
+Priincipal Engineer @ DAZN
+
+### @**_maxgallo**
+
+![right filtered fit](./images/profile.JPEG)
 
 ---
 
@@ -34,6 +43,7 @@ Slide about me
 ## **Migrazione**
 
 ## **Lambda @ Edge**
+
 ## **Solution Analysis**
 
 ---
@@ -204,13 +214,11 @@ Slide about me
 - __*Simili a AWS Lambda*__
 - __*Runnano sulla CDN, CloudFront*__
 - __*Paghi solo quando le usi*__
-- __*Scalano automaticamente[^1]*__
+- __*Scalano automaticamente*__
 
 must be deployed in North Virigina (us-east-1)
 
 ![right 60%](./images/lambda.png)
-
-[^1]: Torneremo su questo a breve.
 
 ---
 
@@ -231,58 +239,60 @@ must be deployed in North Virigina (us-east-1)
 
 # L@E Challenge #1
 
-## **Development**
-Il deploy delle Lambda@Edge nelle varie Edge Location può durare fino a 15/20 minuti.
+## **Concurrent Limit**
 
-^ AWS ha detto che stanno lavorando per ridurre il tempo.
+Limite di 1000 concurrent executions per ogni account, per region.
+
+
+Esempio: *500 RPS* * *14ms* execution time = *7* concurrent Lambda @ Edge
+
+<br/><br/><br/><br/>
+
+![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)
+
+[.footer: È possibile richiedere un aumento fino a 5000.]
 
 ---
 
 # L@E Challenge #2
 
-## **Concurrent Limit**
-1000 concurrent executions per account per region (5000 hard limit)
+## **Development**
 
-Warm Up time
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+Il deploy delle Lambda@Edge nelle Edge Location può durare fino a 10 minuti. 
 
-![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+![inline 55%](./images/deployment.png)
+
+^ AWS ha detto che stanno lavorando per ridurre il tempo.
 
 ---
 
 # L@E Challenge #3
 
 ## **Metrics**
-Le metriche delle lambda sono sparse in tutte le region, ma fruibili tutte insieme nella console di CloudFront.
+Le metriche delle lambda sono sparse in 11 AWS Regions.
 
-20 June 2019
-https://aws.amazon.com/about-aws/whats-new/2019/06/announcing-enhanced-lambda-edge-monitoring-amazon-cloudfront-console/
+Dal 20 giugno 2019 sono state parzialmente aggregate nella console di CloudFront.
 
 
+^ 11 AWS Region sono dove CloudFront ha un Regional Edge Cache
+
+[.footer: https://aws.amazon.com/about-aws/whats-new/2019/06/announcing-enhanced-lambda-edge-monitoring-amazon-cloudfront-console/]
 
 ---
 
 # L@E Challenge #4
 
 ## **Logs**
-Lambda@Edge genera CloudWatch logs in 11 AWS Regions (dove CloudFront ha un Regional Edge Cache) <br/><br/>
-
+Lambda@Edge genera CloudWatch logs in 11 AWS Regions. <br/><br/>
 
 
 ![inline 55%](./images/logs.png)
 
+^ 11 AWS Region sono dove CloudFront ha un Regional Edge Cache
+
 [.footer: https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/]
-
----
-
-# L@E Tips & Tricks
-
-1. Optimize network latency
-	- enable TCP Keep Alive and reuse connections
-	- make network calls to resources in the same region here your Lambda@Edge function is executing
- 	- using DynamoDB global tables
-
-2. Use infrastructure as code for Deployment & Logs Aggregation
 
 
 ---
@@ -304,7 +314,8 @@ Lambda@Edge genera CloudWatch logs in 11 AWS Regions (dove CloudFront ha un Regi
 
 # Costi
 
-<br/>
+In DAZN in media ogni Lambda @ Edge impiega x ms per runnare
+
 
 ![inline 55%](./images/costs.png)
 
@@ -315,19 +326,31 @@ Lambda@Edge genera CloudWatch logs in 11 AWS Regions (dove CloudFront ha un Regi
 [.list: #000000, bullet-character(->), alignment(left)]
 [.build-lists: true]
 
-- __*Scalabilità*__ ✅
-- __*Velocità*__ ✅
-- __*Stessa URL*__ ✅
-- __*Indipendente dal Frontend*__ ✅
-- __*Canary Deployment*__ ❌✅
+- __*Scalabilità*__
+- __*Velocità*__
+- __*Stessa URL*__
+- __*Indipendente dal Frontend*__ 
+- __*Canary Deployment*__ ???
 
 ---
 
 # Canary Deployment
+### **Indirizzare una percentuale di utenti su DAZN 1.0 o DAZN 2.0**
 
-- Change of configuration
-- Runtime configuration
+Nella Lambda @ Edge possiamo mantenere tutta la logica, ma dove teniamo i parametri su cui si basa ?
+
+**Opzione 1:** Nella lambda stessa -> 10 minuti per deployer
+
+**Opzione 2** Configurazione esterna -> Add latency
+
+---
+
+# Runtime Configuration
+
 - Sticky Session + Cookie
+
+[.footer: https://aws.amazon.com/blogs/networking-and-content-delivery/leveraging-external-data-in-lambdaedge/ ]
+
 
 ---
 
