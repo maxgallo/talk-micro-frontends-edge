@@ -379,11 +379,13 @@ Con circa __*2ms*__ di tempo di esecuzione
 [.list: #000000, bullet-character(->), alignment(left)]
 [.build-lists: true]
 
-- __*Scalabile*__
-- __*Veloce*__
-- __*Stessa URL*__
-- __*Indipendente dal Frontend*__
-- __*Canary Deployment*__
+- *Scalabile*
+- *Veloce*
+- *Stessa URL*
+- *Indipendente dal Frontend*
+- **Canary Deployment**
+
+![original 42%](./images/1_or_2_question_final.png)
 
 ---
 
