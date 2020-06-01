@@ -391,21 +391,16 @@ Con circa __*2ms*__ di tempo di esecuzione
 
 # Canary Deployment
 
-Nella Lambda @ Edge abbiamo tutta la logica per reindirizzare gli utenti su DAZN 1.0 o DAZN 2.0, ma dove teniamo la configurazine ?
+Logica per Canary release con geo-routing nella lambda.
+Dove teniamo la configurazine ?
 
-<br/><br/><br/>
 
-[.column]
-### Opzione 1 **-> Nella L@E**
-Fino a 10 minuti per deployare
 
-[.column]
-### Opzione 2 **-> Config esterna**
-Aggiunge latency alla lambda
+![inline 42%](./images/canary.png)
 
 ---
 
-# Runtime Configuration
+# External Configuration
 
 - Sticky Session + Cookie
 
