@@ -130,6 +130,25 @@ Principal Engineer @ DAZN
 
 ---
 
+[.column]
+
+<br /><br /><br /><br />
+
+# **Spike di utenti**
+# **Team in Espansione**
+# **Eventi Live**
+
+[.column]
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+# [fit] Contesto
+
+
+
+
+
+---
+
 # Santa Trinità di **AWS**
 
 ![original 50%](./images/route53_cloudfront_s3.png)
