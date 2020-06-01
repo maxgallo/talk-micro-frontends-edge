@@ -20,7 +20,7 @@ Principal Engineer @ DAZN
 
 <br /><br />
 
-### twitter: @**_maxgallo** 
+### twitter: @**_maxgallo**
 ### web: **maxgallo.io**
 
 ![right filtered fit](./images/profile.JPEG)
@@ -173,22 +173,29 @@ Principal Engineer @ DAZN
 
 ---
 
-# Due Frontend
-## **Due Aziende**
+# Due Frontend, **Due Aziende**
 
 ![inline 60%](./images/dazn_1_vs_2.png)
 
 ---
 
-![original 70% ](./images/monolith_vs_microfrontends.png)
+![original 60% ](./images/monolith_vs_microfrontends.png)
 
 ^ Stesse funzionalità
 
 ---
 
-# Manca qualcosa !
+# Micro-frontends
 
-![original 60% ](./images/1_or_2_question.png)
+![inline](./images/micro_frontends.png)
+
+[.footer: Micro-frontends resources: [https://medium.com/@lucamezzalira/micro-frontends-resources-53b1ec7d512a](https://medium.com/@lucamezzalira/micro-frontends-resources-53b1ec7d512a)]
+
+---
+
+# Quale Frontend ?
+
+![original 45% ](./images/1_or_2_question.png)
 
 ---
 
@@ -197,13 +204,13 @@ Principal Engineer @ DAZN
 [.list: #000000, bullet-character(->), alignment(left)]
 [.build-lists: true]
 
-- __*Scalabilità*__
-- __*Velocità*__
+- __*Scalabile*__
+- __*Veloce*__
 - __*Stessa URL*__
 - __*Indipendente dal Frontend*__
 - __*Canary Deployment*__
 
-![Right 50%](./images/1_or_2_question_vertical.png)
+![original 40% ](./images/1_or_2_question_long.png)
 
 ---
 
@@ -275,7 +282,7 @@ E in particolare hanno
 Limite di 1000 concurrent executions per ogni account, per region.
 
 
-Esempio: *500 RPS* * *14ms* execution time = *7* concurrent Lambda @ Edge
+Esempio: *5000 RPS* * *6ms* execution time = *30* concurrent Lambda @ Edge
 
 <br/><br/><br/><br/>
 
@@ -289,7 +296,7 @@ Esempio: *500 RPS* * *14ms* execution time = *7* concurrent Lambda @ Edge
 
 ## **Development**
 
-Il deploy delle Lambda@Edge nelle Edge Location può durare fino a 10 minuti. 
+Il deploy delle Lambda@Edge nelle Edge Location può durare fino a 10 minuti.
 
 <br/><br/><br/><br/><br/><br/><br/>
 
@@ -304,10 +311,11 @@ Il deploy delle Lambda@Edge nelle Edge Location può durare fino a 10 minuti.
 # L@E Challenge #3
 
 ## **Metrics**
-Le metriche delle lambda sono disponibili nella regione dove la Lambda @ Edge ha runnato (nel peggiore dei casi: 11 AWS Regions).
+Disponibili nella regione dove la Lambda @ Edge ha runnato (11 AWS Regions).
 
-Dal 20 giugno 2019 sono state parzialmente aggregate nella console di CloudFront.
+Parzialmente aggregate nella console di CloudFront.
 
+![inline 30%](./images/users_spike.png)
 
 ^ 11 AWS Region sono dove CloudFront ha un Regional Edge Cache
 
@@ -319,8 +327,7 @@ Dal 20 giugno 2019 sono state parzialmente aggregate nella console di CloudFront
 
 ## **Lambda Logs**
 
-Lambda@Edge genera CloudWatch logs nella regione più vicina a dove la funzione è stata eseguita (nel peggiore dei casi: 11 AWS Regions). <br/><br/>
-
+CloudWatch logs nella regione più vicina alla richiesta (11 AWS Regions). <br/><br/><br/><br/>
 
 ![inline 45%](./images/logs.png)
 
@@ -335,11 +342,12 @@ Lambda@Edge genera CloudWatch logs nella regione più vicina a dove la funzione 
 
 ## **Lambda Validation Logs**
 
-CloudFront genera dei log sulla validazione degli output delle Lambda @ Edge.
-Li trovate su CloudWatch:  __*/aws/cloudfront/LambdaEdge/DistributionId*__ <br /><br />
+CloudWatch logs sulla validazione degli output delle Lambda @ Edge.
+
+Disponibili al log group:  __*/aws/cloudfront/LambdaEdge/DistributionId*__
 
 
-![inline 45%](./images/logs.png)
+![inline 35%](./images/lambda_at_edge.png)
 
 [.footer: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html) ]
 ---
@@ -371,11 +379,11 @@ Con circa __*2ms*__ di tempo di esecuzione
 [.list: #000000, bullet-character(->), alignment(left)]
 [.build-lists: true]
 
-- __*Scalabilità*__
-- __*Velocità*__
+- __*Scalabile*__
+- __*Veloce*__
 - __*Stessa URL*__
-- __*Indipendente dal Frontend*__ 
-- __*Canary Deployment*__ ???
+- __*Indipendente dal Frontend*__
+- __*Canary Deployment*__
 
 ---
 
@@ -386,11 +394,11 @@ Nella Lambda @ Edge abbiamo tutta la logica per reindirizzare gli utenti su DAZN
 <br/><br/><br/>
 
 [.column]
-### Opzione 1 **Nella L@E**
+### Opzione 1 **-> Nella L@E**
 Fino a 10 minuti per deployare
 
 [.column]
-### Opzione 2 **Config esterna**
+### Opzione 2 **-> Config esterna**
 Aggiunge latency alla lambda
 
 ---
@@ -406,9 +414,11 @@ Aggiunge latency alla lambda
 
 # TakeAways
 
+Lavorare on the edge è possibile (non solo AWS)
+
 ---
 
-#[fit] Thank you
+#[fit] Thank You
 
 
 # [fit] **github.com/maxgallo/talk-micro-frontends-on-the-edge**
