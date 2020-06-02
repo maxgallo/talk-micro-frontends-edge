@@ -212,8 +212,8 @@
 
 - __*Scalabile*__
 - __*Veloce*__
-- __*Stessa URL*__
 - __*Indipendente dal Frontend*__
+- __*Stessa URL*__
 - __*Canary Deployment*__
 
 ![original 40% ](./images/1_or_2_question_long.png)
@@ -327,7 +327,7 @@ Il deploy delle Lambda@Edge nelle Edge Location può durare fino a 10 minuti.
 
 # L@E Challenge #3
 
-## **Metrics**
+## **Metrics & Alarms**
 Disponibili nella regione dove la Lambda @ Edge ha runnato (11 AWS Regions).
 
 Parzialmente aggregate nella console di CloudFront.
@@ -364,9 +364,9 @@ CloudWatch logs sulla validazione degli output delle Lambda @ Edge.
 Disponibili al log group:  __*/aws/cloudfront/LambdaEdge/DistributionId*__
 
 
-![inline 35%](./images/lambda_at_edge.png)
+![inline 30%](./images/lambda_at_edge_events.png)
 
-[.footer: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html) ]
+[.footer: Test & Debug Lambda @ Edge: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html) ]
 ---
 
 ## **Contesto**
@@ -400,8 +400,8 @@ Con circa __*2ms*__ di tempo di esecuzione
 
 - *Scalabile*
 - *Veloce*
-- *Stessa URL*
 - *Indipendente dal Frontend*
+- *Stessa URL*
 - **Canary Deployment**
 
 ![original 42%](./images/1_or_2_question_final.png)
@@ -409,21 +409,26 @@ Con circa __*2ms*__ di tempo di esecuzione
 ---
 
 # Canary Deployment
+### **Due modi di gestire la configurazione**
 
-Logica per Canary release con geo-routing nella lambda.
-
-Dove teniamo la configurazine ?
-
-![inline 42%](./images/canary.png)
+![inline 50%](./images/canary_two_ways.png)
 
 ---
 
-# External Configuration
+# Canary Deployment
+### **External Configuration**
 
+
+
+![inline 45%](./images/canary_external.png)
+
+[.footer: External data in Lambda@Edge: [https://aws.amazon.com/blogs/networking-and-content-delivery/leveraging-external-data-in-lambdaedge/](https://aws.amazon.com/blogs/networking-and-content-delivery/leveraging-external-data-in-lambdaedge/) ]
+
+
+---
+
+# Canary Deployment
 - Sticky Session + Cookie
-
-[.footer: https://aws.amazon.com/blogs/networking-and-content-delivery/leveraging-external-data-in-lambdaedge/ ]
-
 
 ---
 
@@ -436,7 +441,7 @@ Lavorare on the edge è possibile (non solo AWS)
 #[fit] Thank You
 
 
-# [fit] **github.com/maxgallo/talk-micro-frontends-on-the-edge**
+# [fit] **github.com/maxgallo/talk-micro-frontends-edge**
 
 <br />
 <br />
