@@ -274,9 +274,20 @@ E in particolare hanno
 
 # Lambda @ Edge
 
-![inline 55%](./images/lambda_at_edge.png)
+![inline 50%](./images/lambda_at_edge.png)
 
+^ CloudFront events come input & output
 ^ La riga tratteggiata è dove CloudFront cacha gli oggetti
+
+---
+
+# Lambda @ Edge
+### **CloudFront Events** <br/><br/><br/><br/><br/>
+
+![inline 45%](./images/lambda_at_edge_events.png)
+
+
+[.footer: Full Specifications: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html) ]
 
 ---
 
@@ -400,9 +411,8 @@ Con circa __*2ms*__ di tempo di esecuzione
 # Canary Deployment
 
 Logica per Canary release con geo-routing nella lambda.
+
 Dove teniamo la configurazine ?
-
-
 
 ![inline 42%](./images/canary.png)
 
