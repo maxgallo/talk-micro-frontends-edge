@@ -11,19 +11,18 @@
 
 ---
 
-# Ciao, sono Max
+# [fit] Ciao, sono Max
 
+### 🇮🇹 🇬🇧 🍝 💻 🎶 🏍 📷 ✈️ ✍️
 
-### **🇮🇹 -> 🇬🇧**
+### **Principal Engineer @ DAZN**
 
-Principal Engineer @ DAZN
-
-<br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ### twitter: @**_maxgallo**
 ### web: **maxgallo.io**
 
-![right filtered fit](./images/profile.JPEG)
+![right 30%](./images/me.png)
 
 ---
 
@@ -92,20 +91,27 @@ Principal Engineer @ DAZN
 
 # Spike di utenti
 
-![original 70%](./images/users_spike.png)
+![original 40%](./images/users_spike.png)
+
+^ Costi
+^ Warm up difficile
 
 ---
 
 # Spike di utenti
 # **-> Scalabilità**
 
-![original 70%](./images/users_spike.png)
+![original 40%](./images/users_spike.png)
 
 ---
 
 # Team in Espansione
 
 ![original 65%](./images/dazn_expansion.png)
+
+^ Esempio AWS account
+^ Prima: Non sapevamo di chi fosse carta di credito dell'account
+^ Dopo: 4 account per ogni team (uno per env) e accesso gestito tramite cli
 
 ---
 
@@ -153,7 +159,7 @@ Principal Engineer @ DAZN
 
 ![original 50%](./images/route53_cloudfront_s3.png)
 
-
+^ File Statici
 ^ Scalabilità ✓
 ^ Indipendenza ✓
 ^ Velocità ✓
@@ -243,13 +249,13 @@ Come le AWS Lambda normali:
 
 E in particolare hanno
 
-- __*Devono essere deployate in us-east-1*__
-- __*Hanno dei limiti leggermente diversi*__
+- __*Limiti leggermente diversi*__
+- __*Collegate ad una distribuzione di CloudFront*__
 - ...
 
 ![right 60%](./images/lambda.png)
 
-[.footer: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge)]
+[.footer: Limiti delle Lambda @ Edge [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge)]
 
 ---
 <br/>
@@ -371,6 +377,8 @@ Disponibili al log group:  __*/aws/cloudfront/LambdaEdge/DistributionId*__
 Con circa __*2ms*__ di tempo di esecuzione
 
 ![inline 55%](./images/costs.png)
+
+[.footer: Si paga per __*Numero di Richieste*__ e __*GB al secondo*__ di memoria usata (con granularità a 50ms) [https://aws.amazon.com/lambda/pricing/#Lambda.40Edge_Pricing](https://aws.amazon.com/lambda/pricing/#Lambda.40Edge_Pricing)]
 
 ---
 
