@@ -239,23 +239,16 @@
 [.list: #000000, bullet-character(->), alignment(left)]
 
 [.build-lists: true]
-Come le AWS Lambda normali:
+Come le AWS Lambda normali
 
+<br />
+
+- __*Nessuna infrastruttura da gestire*__
 - __*Scalano automaticamente*__
 - __*Paghi solo quando le usi*__
-- __*Puoi configurare la memoria*__
 
-<br/>
-
-E in particolare hanno
-
-- __*Limiti leggermente diversi*__
-- __*Collegate ad una distribuzione di CloudFront*__
-- ...
 
 ![right 60%](./images/lambda.png)
-
-[.footer: Limiti delle Lambda @ Edge [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge)]
 
 ---
 <br/>
@@ -298,14 +291,13 @@ E in particolare hanno
 
 Limite di 1000 concurrent executions per ogni account, per region.
 
+<br/><br/>
 
 Esempio: *5000 RPS* * *6ms* execution time = *30* concurrent Lambda @ Edge
 
-<br/><br/><br/><br/>
-
 ![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)![inline](./images/lambda.png)
 
-[.footer: È possibile estendere il limite fino a 5000 per account per region.]
+[.footer: È possibile estendere il limite fino a 5000 per account per region. Limiti delle Lambda @ Edge [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-lambda-at-edge)]
 
 ---
 
@@ -336,7 +328,7 @@ Parzialmente aggregate nella console di CloudFront.
 
 ^ 11 AWS Region sono dove CloudFront ha un Regional Edge Cache
 
-[.footer: https://aws.amazon.com/about-aws/whats-new/2019/06/announcing-enhanced-lambda-edge-monitoring-amazon-cloudfront-console/]
+[.footer: Edge monitoring su Cloudfront: [https://aws.amazon.com/about-aws/whats-new/2019/06/announcing-enhanced-lambda-edge-monitoring-amazon-cloudfront-console/](https://aws.amazon.com/about-aws/whats-new/2019/06/announcing-enhanced-lambda-edge-monitoring-amazon-cloudfront-console/)]
 
 ---
 
@@ -350,7 +342,7 @@ CloudWatch logs nella regione più vicina alla richiesta (11 AWS Regions). <br/>
 
 ^ 11 AWS Region sono dove CloudFront ha un Regional Edge Cache
 
-[.footer: [https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/](https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/)]
+[.footer: Logs Aggregation [https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/](https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/)]
 
 
 ---
@@ -439,17 +431,19 @@ Con circa __*2ms*__ di tempo di esecuzione
 
 - Contesto Contesto Contesto
 
-- Lavorare on the edge è possibile
+- Lavorare sulle CDN è possibile
 
 - Non solo AWS (Cloudflare Workers)
 
-- Routing e Canary Release solo l'inizio (SSR[^1], SEO [^2], Security Headers, ...)
+- Routing e Canary Release solo l'inizio (SSR[^1], SEO [^2], Security Headers...)
 
 
 
 [^1]: Server Side Rendering
 
 [^2]: Search Engine Optimisation
+
+^ Non lavoriamo più in un contesto di Client-Server, ma di Client, Server & CDN.
 
 ---
 
