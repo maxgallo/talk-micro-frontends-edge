@@ -418,23 +418,38 @@ Con circa __*2ms*__ di tempo di esecuzione
 # Canary Deployment
 ### **External Configuration**
 
-
-
-![inline 45%](./images/canary_external.png)
+![original 40%](./images/canary_external.png)
 
 [.footer: External data in Lambda@Edge: [https://aws.amazon.com/blogs/networking-and-content-delivery/leveraging-external-data-in-lambdaedge/](https://aws.amazon.com/blogs/networking-and-content-delivery/leveraging-external-data-in-lambdaedge/) ]
-
 
 ---
 
 # Canary Deployment
-- Sticky Session + Cookie
+### **Sticky Session**
+### **+ Cookies**
+
+![original 40%](./images/lambda_at_edge_sticky.png)
 
 ---
 
 # TakeAways
 
-Lavorare on the edge è possibile (non solo AWS)
+[.list: #000000, bullet-character(->), alignment(left)]
+[.build-lists: true]
+
+- Contesto Contesto Contesto
+
+- Lavorare on the edge è possibile
+
+- Non solo AWS (Cloudflare Workers)
+
+- Routing e Canary Release solo l'inizio (SSR[^1], SEO [^2], Security Headers, ...)
+
+
+
+[^1]: Server Side Rendering
+
+[^2]: Search Engine Optimisation
 
 ---
 
